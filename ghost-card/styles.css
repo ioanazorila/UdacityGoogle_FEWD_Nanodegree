@@ -1,0 +1,63 @@
+/* add your CSS here */
+
+.card {
+    width: 304px;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid slategray;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 10px slategray;
+    background-image: url("snow_background.jpeg");
+    background-size: cover;
+    font-family: Lato, sans-serif;
+    color: #090f0f;
+}
+
+.name {
+    padding: 5px;
+    font-family: Metamorphous, sans-serif;
+    text-shadow: 2px 2px 10px slategray;
+}
+
+.image {
+    opacity: 0.85;
+    width: 300px;
+    padding: 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px slategray;
+    background-color: slategray;
+ }
+
+.information {
+    opacity: 0.85;
+    width: 280px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid slategray;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px slategray;
+    background-color: rgba(234, 234, 237, 0.8);
+}
+
+.image:hover,
+.information:hover {
+    opacity: 1;
+}
+
+.interesting {
+    font: italic 0.8em Metamorphous, sans-serif;
+    text-shadow: 2px 2px 10px slategray;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item {
+    font-weight: bold;
+}
+
+.translation {
+    font-style: italic;
+}
