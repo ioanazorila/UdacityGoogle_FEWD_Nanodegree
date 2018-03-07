@@ -1,0 +1,117 @@
+body {
+    text-align: center;
+	background-image: url("http://i482.photobucket.com/albums/rr188/evanescenta/2.jpg");
+	margin-bottom: 100px;
+}
+
+h1 {
+    font: 4em Bungee, sans-serif;
+	color: #353535;
+    margin: 0;
+}
+
+h2 {
+    margin: 1em 0 0.25em;
+}
+
+h2:first-of-type {
+    margin-top: 0.5em;
+}
+
+h2,
+h3,
+p {
+	font-family: Roboto, sans-serif;
+	color: #dcdcdc;
+	text-indent: 2%;
+}
+
+tr,
+td {
+    border: 1px solid #353535;
+}
+
+tr {
+    height: 10px;
+}
+
+td {
+    width: 10px;
+}
+
+table {
+	border: 2px solid #353535;
+    border-collapse: collapse;
+    margin: 0 auto;
+	box-shadow: 10px 10px 20px;
+}
+
+input[type=number] {
+    width: 6em;
+}
+
+input[type=submit] {
+	font: 1.2em Roboto, sans-serif;
+	margin: 0.4em;
+	background-color: #dcdcdc;
+	cursor: pointer;
+}
+
+.top {
+	background-image: url("http://i482.photobucket.com/albums/rr188/evanescenta/9c4dd3e9-f871-4669-bfaa-44a77b424bc8.jpg");
+	padding-bottom: 0.5%;
+	margin-bottom: 1%;
+	border: 1px solid #353535;
+	box-shadow: 5px 5px 10px;
+}
+
+.bottom {
+	background-image: url("http://i482.photobucket.com/albums/rr188/evanescenta/9c4dd3e9-f871-4669-bfaa-44a77b424bc8.jpg");
+	padding: 0.5% 0 1% 0;
+	min-height: 100px;
+	overflow: hidden;
+	border: 1px solid #353535;
+	box-shadow: 5px 5px 10px;
+}
+
+.leftSide {
+	width: 100%;
+	float: left;
+	text-align: left;
+	padding-top: 1%;
+}
+
+.rightSide {
+	width: 0%;
+	float: right;
+	overflow: none;
+	position: relative;
+	padding-top: 1%;
+}
+
+img {
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+	max-width: 90%;
+	max-height: 90%;
+	border: 2px solid #353535;
+	box-shadow: 10px 10px 20px;
+}
+
+#italian {
+	background-image: url("http://i482.photobucket.com/albums/rr188/evanescenta/flag.png");
+	background-size: cover;
+	font-weight: bold;
+}
+
+#christmas {
+	background-image: url("http://i482.photobucket.com/albums/rr188/evanescenta/christmas_2.jpg");
+	background-size: cover;
+	font-weight: bold;
+}
+
+.bold {
+	font: bold 1.1em Roboto, sans-serif;
+	color: crimson;
+}

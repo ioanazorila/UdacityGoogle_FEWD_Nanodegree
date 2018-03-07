@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Pixelate This!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">	
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<h1>Pixelate This!</h1>
+	
+	<div class="top">
+		<form id="mode">
+			<input type="submit" id="classic" name="classic" value="Classic">
+			<input type="submit" id="italian" name="italian" value="Italian Challenge">
+			<input type="submit" id="christmas" name="christmas" value="Christmas Challenge">
+			<input type="submit" id="help" name="help" value="Help">
+		</form>
+	</div>
+	
+	<div class="bottom">
+		<div class="leftSide">
+			<!-- Contains the left side menu (for Classic mode), or the drawing canvas (for Italian Challenge or Christmas Challenge mode) -->
+			<!-- Default and Help menu content below -->			
+			<h3>Select the preferred mode: Classic, Italian Challenge or Christmas Challenge.</h3>
+			<h3>Classic Mode</h3>
+			<p>Select the desired canvas height and width from the left-side menu and click on <span class="bold">Submit</span> to generate the drawing canvas.</p>
+			<p>To draw a dot, click in a cell. To draw a line, click and hold down the left mouse button and drag the cursor across the canvas.</p>
+			<p>Use the colour picker to change the colour, and the <span class="bold">Clear canvas</span> button to reset the drawing canvas.</p>
+			<h3>Italian Challenge and Christmas Challenge</h3>
+			<p>Click on <span class="bold">New challenge</span> to generate a new challenge.</p>
+			<p>To draw a dot, click in a cell. To draw a line, click and hold down the left mouse button and drag the cursor across the canvas.</p>
+			<p>Use the colour picker to change the colour, and the <span class="bold">Clear canvas</span> button to reset the drawing canvas.</p>
+			<p>When you have finished drawing, click on <span class="bold">Show solution</span> to display the solution.</p>
+		</div>
+		<div class="rightSide">
+			<!-- Contains the drawing canvas (for Classic mode), or the image/solution to the challenge (for Italian Challenge or Christmas Challenge mode) -->
+		</div>
+	</div>
+	
+	<!-- Load jQuery from Google CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="designs.js"></script>
+</body>
+</html>
