@@ -1,10 +1,10 @@
 /////////////////////////////////// Global variables ///////////////////////////////////
 
 //const pathToImg = 'http://i482.photobucket.com/albums/rr188/evanescenta/';	// Location of images displayed on webpage
-const pathToImg = 'images/';	// Location of images displayed on webpage
+const pathToImg = 'images/';			// Location of images displayed on webpage
 
-const fireworks = $('.fireworks');							// Fireworks background, different image on each page
-const darkLayer = $('.dark-layer');							// Dark grey layer used to darken fireworks background images
+const fireworks = $('.fireworks');		// Fireworks background, different image on each page
+const darkLayer = $('.dark-layer');		// Dark grey layer used to darken fireworks background images
 
 
 
@@ -34,7 +34,7 @@ function displayObjective(level) {
 	starImg.insertAfter(h1);
 
 	// Display objective for 2 seconds, then start the game
-	const delay = 2000;										// 2 seconds
+	const delay = 2000;			// 2 seconds
 	setTimeout(function () {
 		startCardGame(level);
 	}, delay);
@@ -50,7 +50,7 @@ function startCardGame(level) {
 
 	////////////////////////////// Build start game webpage //////////////////////////////
 	
-	const imgList = [										// 16 images available. An image will be used on 2 cards.
+	const imgList = [			// 16 images available. An image will be used on 2 cards.
 		['2018.jpg', '2018'],
 		['aurora.jpg', 'aurora borealis over snowy mountain'],
 		['berry.jpg', 'branch with berries'],
@@ -69,9 +69,9 @@ function startCardGame(level) {
 		['star.jpg', 'star-shaped bauble']
 	]
 
-	const hiddenImg = pathToImg + 'hiddencard.jpg';			// Hidden card image
+	const hiddenImg = pathToImg + 'hiddencard.jpg';		// Hidden card image
 
-	let row, column;										// Number of rows/columns of cards
+	let row, column;					// Number of rows/columns of cards
 
 	switch (level) {
 		
@@ -90,7 +90,8 @@ function startCardGame(level) {
 			column = 8;
 	}
 
-	// Create list of available image indexes. At start, each image index 0-3, or 0-8, or 0-15 (depending on level) will be listed twice.
+	// Create list of available image indexes.
+	//At start, each image index 0-3, or 0-8, or 0-15 (depending on level) will be listed twice.
 	let imgIndex = [];
 
 	for (let i = 0; i < (row*column/2); i++) {
@@ -108,22 +109,23 @@ function startCardGame(level) {
 	darkLayer.append(table);
 
 	// Insert table cells and assign random index from imgIndex (imgList) to each cell
-	let randomIndex;										// Random index from imgIndex array
-	let newTd;												// New cell to be added to the table
+	let randomIndex;		// Random index from imgIndex array
+	let newTd;			// New cell to be added to the table
 
 	for (let i = 0; i < row; i++) {
 
-		table.append('<tr></tr>');							// Add new line to table
+		table.append('<tr></tr>');		// Add new line to table
 
 		for (let j = 0; j < column; j++) {
 
 			randomIndex = Math.floor(Math.random() * imgIndex.length);	// Select random index from imgIndex array
-			newTd = $('<td class="hidden">' + imgIndex[randomIndex] + '</td>');		// Store index as text in the new cell. td class hidden will be toggled when card image is revealed.
+			// Store index as text in the new cell. td class hidden will be toggled when card image is revealed.
+			newTd = $('<td class="hidden">' + imgIndex[randomIndex] + '</td>');
 			imgIndex.splice(randomIndex,1);					// Remove used element from list of available image indexes
 
-			if (j === 0) {									// If first cell on row, add new cell as first child of row
+			if (j === 0) {							// If first cell on row, add new cell as first child of row
 				$('tr').last().append(newTd);
-			} else {										// Else, add new cell after last cell
+			} else {							// Else, add new cell after last cell
 				newTd.insertAfter($('td').last());
 			}
 
@@ -135,14 +137,14 @@ function startCardGame(level) {
 	//////////////////////////////// Play the game ////////////////////////////////
 
 
-	let currentCard, previousCard;							// td cell of the current/previously clicked card
-	let cardsShown = 0;										// Number of cards visible to user
-	let currentIndex, previousIndex;						// Index (inside imgList), identifies the image on the current/previously clicked card
+	let currentCard, previousCard;				// td cell of the current/previously clicked card
+	let cardsShown = 0;					// Number of cards visible to user
+	let currentIndex, previousIndex;			// Index (inside imgList), identifies the image on the current/previously clicked card
 
-	const delay = 1000;										// 1 second delay before removing matching cards
-	let startTime = Date.now();								// Game start time
-	let endTime;											// Game end time
-	let clickDisabled = false;								// clickDisabled will be true when 2 matching cards are already visible
+	const delay = 1000;					// 1 second delay before removing matching cards
+	let startTime = Date.now();				// Game start time
+	let endTime;						// Game end time
+	let clickDisabled = false;				// clickDisabled will be true when 2 matching cards are already visible
 
 	//Listen for click only on hidden cards	(td class="hidden")
 	table.on('click', 'td.hidden', function () {
@@ -160,7 +162,7 @@ function startCardGame(level) {
 				currentIndex = Number(currentCard.text());
 				currentCard.toggleClass("hidden");
 				currentCard.children('img').attr('src', pathToImg + imgList[currentIndex][0]).attr('alt', imgList[currentIndex][1]);
-				cardsShown = 1;								// 1 card visible to user at the moment
+				cardsShown = 1;			// 1 card visible to user at the moment
 				break;
 
 			case 1:
@@ -177,11 +179,11 @@ function startCardGame(level) {
 
 				// Check if most recently clicked card and previously clicked card match
 				if (currentIndex !== previousIndex) {		// Not matching
-					cardsShown = 2;							// 2 cards visible to user at the moment
+					cardsShown = 2;				// 2 cards visible to user at the moment
 
-				} else if (currentIndex === 0) {			// Cards match, found the desired image (2018)
-
-					clickDisabled = true;					// Disable event listener actions on click until the matching cards are removed
+				} else if (currentIndex === 0) {		// Cards match, found the desired image (2018)
+					// Disable event listener actions on click until the matching cards are removed
+					clickDisabled = true;
 					endTime = Date.now();
 
 					setTimeout(function () {
@@ -189,8 +191,8 @@ function startCardGame(level) {
 						displayWinMessage(level, (endTime-startTime)/1000);
 					}, delay);
 
-				} else {									// Cards match, image different than 2018. Wait for 1 second and then remove the matching cards.
-
+				} else {
+					// Cards match, image different than 2018. Wait for 1 second and then remove the matching cards.
 					clickDisabled = true;
 
 					setTimeout(function removeMatchingCards() {
@@ -217,7 +219,7 @@ function startCardGame(level) {
 				currentCard.toggleClass("hidden");
 				currentCard.children('img').attr('src', pathToImg + imgList[currentIndex][0]).attr('alt', imgList[currentIndex][1]);
 
-				cardsShown = 1;								// 1 card visible to user at the moment
+				cardsShown = 1;					// 1 card visible to user at the moment
 				break;
 		}
 	});
@@ -325,16 +327,16 @@ function displayReward() {
 
 // Listen for click on Easy, Normal or Hard button on landing page
 $('.dark-layer').on('click', 'input[name*="start"]', function(evt) {
-	evt.preventDefault();									// Prevent page reload on Submit
-	let level = $(this).attr('id');							// Difficulty level for the matching cards game (Easy, Normal or Hard)
-	displayObjective(level); 								// Rebuild webpage elements to display the objective of the game
+	evt.preventDefault();			// Prevent page reload on Submit
+	let level = $(this).attr('id');		// Difficulty level for the matching cards game (Easy, Normal or Hard)
+	displayObjective(level);		// Rebuild webpage elements to display the objective of the game
 });
 
 
 // Listen for click on Claim reward button on win page
 $('.dark-layer').on('click', 'input[name="claimReward"]', function(evt) {
 	evt.preventDefault();
-	displayReward();										// Rebuild webpage elements to display the reward page
+	displayReward();			// Rebuild webpage elements to display the reward page
 });
 
 
@@ -343,14 +345,14 @@ $('.dark-layer').on('click', 'button[class*="audio"]', function(evt) {
 	
 	evt.preventDefault();
 	
-	let control = $(this).attr('class');					// Difficulty level for the matching cards game (Easy, Normal or Hard)
-	let vol = $('.audio').prop("volume");					// Current volume
+	let control = $(this).attr('class');	// Difficulty level for the matching cards game (Easy, Normal or Hard)
+	let vol = $('.audio').prop("volume");	// Current volume
 
 	switch (control) {
 		
 		case 'play-audio':
 			if (vol < 0.01) 
-				$('.audio').prop("volume", 0.1);			// If volume is already muted, start playing at low volume
+				$('.audio').prop("volume", 0.1);	// If volume is already muted, start playing at low volume
 			$('.audio').trigger("play");
 			break;
 			
@@ -359,12 +361,12 @@ $('.dark-layer').on('click', 'button[class*="audio"]', function(evt) {
 			break;
 			
 		case 'increase-audio':
-			vol = (vol >= 0.8) ? 1 : vol + 0.2;				// Increase volume by 0.2 (maximum value 1)
+			vol = (vol >= 0.8) ? 1 : vol + 0.2;		// Increase volume by 0.2 (maximum value 1)
 			$('.audio').prop("volume", vol);
 			break;
 			
 		case 'decrease-audio':
-			vol = (vol <= 0.2) ? 0 : vol - 0.2;				// Decrease volume by 0.2 (minimum value 0)
+			vol = (vol <= 0.2) ? 0 : vol - 0.2;		// Decrease volume by 0.2 (minimum value 0)
 			$('.audio').prop("volume", vol);
 			break;
 	}
