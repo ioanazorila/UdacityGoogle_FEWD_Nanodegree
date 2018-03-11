@@ -1,4 +1,5 @@
-/*
+/* Based on the gruntfile.js code provided by Udacity in the Responsive Images course
+
  After you have changed the settings under responsive_images
  run this with one of these options:
   "grunt" alone creates a new, completed images directory
